@@ -1,4 +1,4 @@
-# Creative Hub Pro: AI-Powered Anime Animation Assistant
+# Creative Hub Pro: AI-Powered creative Assistant
 
 **Creative Hub Pro** is a professional-grade AI pipeline designed to bridge physical creativity (sketching on tablet/phone) with high-end Generative AI. It allows artists to draw in apps like **Ibis Paint** or **FlipaClip** and instantly see their sketches transformed into high-quality anime illustrations via a remote GPU-powered Stable Diffusion backend.
 
