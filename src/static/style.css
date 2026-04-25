@@ -1,0 +1,210 @@
+:root {
+    --bg-color: #0d0d0d;
+    --card-bg: rgba(30, 30, 30, 0.7);
+    --accent: #bb86fc;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --glass-blur: 15px;
+    --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+header {
+    padding: 20px;
+    text-align: center;
+}
+
+.glow-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--accent);
+    text-shadow: 0 0 10px rgba(187, 134, 252, 0.5);
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    background: rgba(187, 134, 252, 0.1);
+    border: 1px solid var(--accent);
+    margin-top: 8px;
+    text-transform: uppercase;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    gap: 20px;
+    overflow-y: auto;
+}
+
+#image-container {
+    flex: 1;
+    background: #1a1a1a;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    min-height: 300px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+#image-placeholder {
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+#result-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    box-shadow: var(--shadow);
+}
+
+#prompt-panel label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#prompt-input {
+    width: 100%;
+    height: 100px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    resize: none;
+    outline: none;
+}
+
+footer {
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.fab {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: none;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(187, 134, 252, 0.4);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fab:active {
+    transform: scale(0.9);
+}
+
+.btn-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000;
+    z-index: 2;
+    position: relative;
+}
+
+.pulse-ring {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    opacity: 0;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.8); opacity: 0.8; }
+    100% { transform: scale(1.3); opacity: 0; }
+}
+
+/* Loader */
+.loader-ripple {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.loader-ripple div {
+  position: absolute;
+  border: 4px solid var(--accent);
+  opacity: 1;
+  border-radius: 50%;
+  animation: ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.loader-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes ripple {
+  0% { top: 36px; left: 36px; width: 0; height: 0; opacity: 0; }
+  5% { top: 36px; left: 36px; width: 0; height: 0; opacity: 1; }
+  100% { top: 0px; left: 0px; width: 72px; height: 72px; opacity: 0; }
+}
+
+#status-toast {
+    position: fixed;
+    bottom: 120px;
+    left: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.8);
+    color: var(--accent);
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 0.9rem;
+    border: 1px solid var(--accent);
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

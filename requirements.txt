@@ -1,0 +1,26 @@
+# Base PyTorch dependencies
+torch>=2.1.1
+torchvision>=0.16.1
+
+# HuggingFace & Fine-Tuning Ecosystem
+transformers>=4.40.0
+diffusers>=0.27.0
+accelerate>=0.29.0
+datasets
+trl
+peft
+bitsandbytes
+
+# Unsloth (Highly Recommended for Cloud)
+# For standard pip environments (Colab/Kaggle/RunPod), you typically install unsloth via:
+# pip install "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git"
+# Note: Unsloth requires a CUDA-capable GPU. The pure pip string here works after you install basic deps.
+unsloth
+
+# Other utilities
+scipy
+pandas
+tqdm
+google-genai
+pillow
+python-dotenv

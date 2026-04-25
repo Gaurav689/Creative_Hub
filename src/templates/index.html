@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Creative Hub AI</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1 class="glow-text">CREATIVE HUB</h1>
+            <div id="status-badge" class="badge">Ready</div>
+        </header>
+
+        <main>
+            <div id="image-container">
+                <div id="image-placeholder">
+                    <div class="loader-ripple" v-if="isGenerating"><div></div><div></div></div>
+                    <p v-else>No image generated yet</p>
+                </div>
+                <img id="result-img" src="" alt="Result" class="hidden">
+            </div>
+
+            <div id="prompt-panel" class="glass-card">
+                <label for="prompt-input">Your Idea</label>
+                <textarea id="prompt-input" placeholder="e.g. Masterpiece, high detail, cyberpunk girl..."></textarea>
+            </div>
+        </main>
+
+        <footer>
+            <button id="gen-btn" class="fab">
+                <span class="btn-text">AI</span>
+                <div class="pulse-ring"></div>
+            </button>
+        </footer>
+        
+        <!-- Toast for status updates -->
+        <div id="status-toast" class="hidden"></div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
